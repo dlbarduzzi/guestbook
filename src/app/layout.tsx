@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next"
+import { Calistoga } from "next/font/google"
 import localFont from "next/font/local"
 
 import { siteConfig } from "@/lib/site"
@@ -16,6 +17,12 @@ const geistMono = localFont({
   src: "../fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+})
+
+const fontHeading = Calistoga({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-heading",
 })
 
 export const metadata: Metadata = {
@@ -51,7 +58,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
         className={cn(
           "min-h-screen bg-white font-sans text-base text-gray-900 antialiased",
           geistSans.variable,
-          geistMono.variable
+          geistMono.variable,
+          fontHeading.variable
         )}
       >
         {children}
