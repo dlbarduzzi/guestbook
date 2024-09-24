@@ -3,6 +3,7 @@ import { Calistoga } from "next/font/google"
 import localFont from "next/font/local"
 
 import { Providers } from "@/components/providers"
+import { TailwindIndicator } from "@/components/tailwind-indicator"
 
 import { siteConfig } from "@/lib/site"
 import { cn } from "@/lib/utils"
@@ -65,6 +66,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         )}
       >
         <Providers>{children}</Providers>
+        <TailwindIndicator />
       </body>
     </html>
   )

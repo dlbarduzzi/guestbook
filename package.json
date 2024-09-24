@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier src/ --write",
-    "format:check": "prettier src/ --check"
+    "format:check": "prettier src/ --check",
+    "db:migrate": "cross-env DB_MIGRATING=true drizzle-kit migrate",
+    "db:studio": "npx drizzle-kit studio"
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.5.0",

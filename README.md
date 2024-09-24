@@ -24,3 +24,21 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 result.
+
+## Setting up database
+
+Generate database migration (always generate when there is a table change).
+
+```sh
+npx drizzle-kit generate --name initial
+```
+
+Then, run your migration against the database.
+
+```sh
+npm run db:migrate
+```
+
+## License
+
+MIT License

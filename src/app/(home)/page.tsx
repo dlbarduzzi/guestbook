@@ -12,7 +12,7 @@ export default async function Home() {
     <div className="bg-white">
       <div className="bg-gray-50">
         <Container className="max-w-5xl pb-12 pt-10">
-          <div>
+          <div className="md:flex md:items-start md:justify-between md:gap-x-6">
             <div>
               <h2
                 className={cn(
@@ -34,7 +34,7 @@ export default async function Home() {
               </p>
             </div>
             {isAuthenticated ? (
-              <div className="pt-4">
+              <div className="pt-4 md:pt-0">
                 <Button type="button" variant="primary">
                   New Message
                 </Button>
