@@ -5,6 +5,9 @@ import { z } from "zod"
 export const env = createEnv({
   server: {
     NODE_ENV: z.enum(["development", "production"]),
+    AUTH_SECRET: z.string().min(12),
+    GITHUB_CLIENT_ID: z.string().min(1),
+    GITHUB_CLIENT_SECRET: z.string().min(1),
   },
   onValidationError: (error: ZodError) => {
     console.error(

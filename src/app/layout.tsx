@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next"
 import { Calistoga } from "next/font/google"
 import localFont from "next/font/local"
 
+import { Providers } from "@/components/providers"
+
 import { siteConfig } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
@@ -62,7 +64,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontHeading.variable
         )}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   )

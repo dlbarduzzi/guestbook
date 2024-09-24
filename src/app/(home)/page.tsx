@@ -3,11 +3,15 @@ import { Button } from "@/components/ui/button"
 
 import { cn } from "@/lib/utils"
 
-export default function Home() {
+import { auth } from "@/config/auth"
+
+export default async function Home() {
+  const session = await auth()
+  const isAuthenticated = !!(session && session.user)
   return (
     <div className="bg-white">
       <div className="bg-gray-50">
-        <Container className="pb-12 pt-10">
+        <Container className="max-w-5xl pb-12 pt-10">
           <div>
             <div>
               <h2
@@ -29,11 +33,13 @@ export default function Home() {
                 one message at a time!
               </p>
             </div>
-            <div className="pt-4">
-              <Button type="button" variant="primary">
-                New Message
-              </Button>
-            </div>
+            {isAuthenticated ? (
+              <div className="pt-4">
+                <Button type="button" variant="primary">
+                  New Message
+                </Button>
+              </div>
+            ) : null}
           </div>
         </Container>
       </div>
