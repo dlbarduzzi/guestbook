@@ -29,6 +29,7 @@ jobs:
       - name: Run lint
         env:
           NEXT_PUBLIC_BASE_URL: "http://localhost:3000"
+          SKIP_SERVER_ENV_VALIDATIONS: "true"
         run: npm run lint
 
   format:
@@ -75,4 +76,5 @@ jobs:
       - name: Run build
         env:
           NEXT_PUBLIC_BASE_URL: "http://localhost:3000"
+          SKIP_SERVER_ENV_VALIDATIONS: "true"
         run: npm run build

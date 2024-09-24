@@ -22,5 +22,5 @@ export const env = createEnv({
   experimental__runtimeEnv: process.env,
   // This is the only file where we allow to access `process.env`
   // eslint-disable-next-line n/no-process-env
-  skipValidation: process.env.SKIP_ENV_VALIDATIONS === "true",
+  skipValidation: process.env.SKIP_SERVER_ENV_VALIDATIONS === "true",
 })
