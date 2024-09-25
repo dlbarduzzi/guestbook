@@ -1,20 +1,23 @@
+"use client"
+
+import { useState } from "react"
+
 import { Container } from "@/components/container"
 import { Button } from "@/components/ui/button"
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+import { Collapsible, CollapsibleContent } from "@/components/ui/collapsible"
 
 import { cn } from "@/lib/utils"
+
+import { MessageForm } from "./message-form"
 
 type HeadingProps = {
   isAuthenticated: boolean
 }
 
 export function Heading({ isAuthenticated }: HeadingProps) {
+  const [showForm, setShowForm] = useState(false)
   return (
-    <Collapsible>
+    <Collapsible open={showForm} onOpenChange={setShowForm}>
       <div className="bg-gray-50">
         <Container className="max-w-5xl pb-12 pt-10">
           <div className="md:flex md:items-start md:justify-between md:gap-x-6">
@@ -40,11 +43,13 @@ export function Heading({ isAuthenticated }: HeadingProps) {
             </div>
             {isAuthenticated ? (
               <div className="pt-4 md:pt-0">
-                <CollapsibleTrigger asChild>
-                  <Button type="button" variant="primary">
-                    New Message
-                  </Button>
-                </CollapsibleTrigger>
+                <Button
+                  type="button"
+                  variant="primary"
+                  onClick={() => setShowForm(true)}
+                >
+                  New Message
+                </Button>
               </div>
             ) : null}
           </div>
@@ -52,7 +57,9 @@ export function Heading({ isAuthenticated }: HeadingProps) {
       </div>
       <CollapsibleContent>
         <div className="border-t border-t-gray-200 bg-gray-50 py-8">
-          <Container className="max-w-5xl">Form here...</Container>
+          <Container className="relative max-w-5xl">
+            <MessageForm setShowForm={setShowForm} />
+          </Container>
         </div>
       </CollapsibleContent>
     </Collapsible>
